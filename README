@@ -28,6 +28,8 @@ InvisibleDimensions
   dimensions of an element that isn't visible, displayed or in the DOM. 
   If you include it in your JS then InputClear will use it, meaning your input
   tag doesn't need to be displayed on page load for InputClear to work. 
+  
+  Get it here: http://github.com/3n/invisibledimensions/tree/master
 
 MooTools 1.2
   You only need the classes displayed in InputClear's dependencies (and all
