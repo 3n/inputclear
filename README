@@ -30,5 +30,5 @@ InvisibleDimensions
   tag doesn't need to be displayed on page load for InputClear to work. 
 
 MooTools 1.2
-You only need the classes displayed in the Class' dependencies (and all
-classes required by them).  
+  You only need the classes displayed in the Class' dependencies (and all
+  classes required by them).  
