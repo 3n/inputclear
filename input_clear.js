@@ -1,15 +1,9 @@
-// InputClear class for MooTools 1.2
-// Version 1.0
-// Author: Ian Collins (3n)
+/*
+Script: InputClear.js
+	Adds an "(X)" button inside of an INPUT that will clear the input if you click it.
+	Works great on iPhone. 
+*/
 
-
-// Class: InputClear
-// 		Add a clear button to an INPUT element, like the iPhone-native inputs.
-// Dependencies: 
-// 		InvisibleDimensions (3n) *optional
-// 		Class.Extras (MooTools)
-// 		Element.Style (MooTools)
-// 		Element.Event (MooTools)
 var InputClear = new Class({
 	
 	Implements: Options,
@@ -35,7 +29,7 @@ var InputClear = new Class({
 			this.element_invisible_dimensions = this.element;
 		}
 				
-		var desired_height = this.element_invisible_dimensions.getSize().y - this.options.spacing*2;
+		var desired_height = this.element_invisible_dimensions.getSize().y - this.options.spacing*2
 		
 		this.button = new Element('a', {
 			'styles': {
@@ -68,7 +62,7 @@ var InputClear = new Class({
 		this.button.setStyle('padding-top', 	'1px');
 		this.button.setStyle('padding-bottom','3px');
 
-		this.button.setStyle('display', 'none');
+		this.button.simple_hide();
 		this.show_if_text();
 		
 		this.add_events();		
@@ -78,19 +72,18 @@ var InputClear = new Class({
 	add_events: function(){
 		this.button.addEvent('click', this.do_clear.bind(this));
 		this.element.addEvent('blur', this.show_if_text.bind(this));
-		if (this.options.auto_hide) 
-			this.element.addEvent('focus',this.button.setStyle.bind(this.button, ['display','none']));
+		if (this.options.auto_hide) this.element.addEvent('focus',this.button.simple_hide.bind(this.button));
 		return this;
 	},
 	
 	do_clear: function(){
 		this.element.set('value','');
-		if (this.options.auto_hide) this.button.setStyle('display', 'none');
+		if (this.options.auto_hide) this.button.simple_hide();
 		return this;
 	},
 	
 	show_if_text: function(){
-		if (!this.element.get('value').clean().empty()) this.button.setStyle('display','inline');		
+		if (!this.element.get('value').is_empty(true)) this.button.simple_show('inline');		
 		return this;
 	}
 });
